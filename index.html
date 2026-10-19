@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escolhidas | Guia Prático</title>
+<meta name="description" content="Cadastre-se e receba o Guia Prático Escolhidas, de Raphaela Maximiano.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: cabeçalho fino, hero em duas áreas (formulário à esquerda, foto de parede com sombra de folhas à direita), faixa de três pontos e rodapé. Tema único e deliberado, claro. */
+:root {
+  --paper: #f5f1ea;
+  --paper-2: #fdfbf6;
+  --ink: #1b2238;
+  --gold: #ad8f3f;
+  --muted: #6b6f7b;
+  --line: #d9d2c4;
+  --wall-a: #e9e0d2;
+  --wall-b: #f3ece0;
+  --font-display: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  width: 100%;
+  max-width: 1234px;
+  margin-inline: auto;
+  padding-left: max(30px, env(safe-area-inset-left, 0px));
+  padding-right: max(30px, env(safe-area-inset-right, 0px));
+}
+@media (max-width: 520px) {
+  .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+}
+
+/* cabeçalho */
+.top { background: var(--paper); border-top: 2px solid #e6e1d8; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 94px; }
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); }
+.brand svg { width: 26px; height: 26px; flex: none; }
+.brand span { font-family: var(--font-display); font-size: 33px; font-weight: 500; letter-spacing: .005em; line-height: 1; }
+.brand span i { font-style: normal; color: var(--gold); }
+.tag { display: flex; align-items: center; gap: 10px; font-size: 16px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 500; text-align: right; }
+.tag svg { width: 15px; height: 15px; flex: none; }
+@media (max-width: 720px) { .tag { display: none; } }
+
+/* hero */
+.hero { position: relative; overflow: hidden; background: linear-gradient(100deg, var(--wall-a) 0%, var(--wall-b) 60%, #efe7da 100%); }
+.hero .scene { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero .wrap { position: relative; padding-block: 70px 36px; min-height: 1020px; display: flex; flex-direction: column; }
+.hero-in { max-width: 470px; }
+.eyebrow { display: flex; align-items: center; gap: 14px; margin: 0 0 30px; color: var(--gold); font-weight: 600; font-size: 17px; letter-spacing: .17em; text-transform: uppercase; }
+.eyebrow::before { content: ""; width: 30px; height: 1.5px; background: var(--gold); flex: none; }
+h1 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: clamp(42px, 5vw, 56px); line-height: 1.04; letter-spacing: -.005em; text-wrap: balance; }
+h1 em { color: var(--gold); font-weight: 500; }
+.lead { margin: 26px 0 36px; max-width: 390px; color: var(--muted); font-size: 17px; line-height: 2; }
+form { width: 100%; max-width: 410px; }
+.field { margin-bottom: 20px; }
+label { display: block; margin-bottom: 14px; font-weight: 600; font-size: 17px; }
+.input { position: relative; }
+.input svg { position: absolute; left: 16px; top: 50%; width: 15px; height: 15px; transform: translateY(-50%); color: #c4917b; pointer-events: none; }
+input {
+  width: 100%; height: 50px; padding: 0 14px 0 44px;
+  background: var(--paper-2); color: var(--ink);
+  border: 1.5px solid #dcd6ca; border-radius: 2px;
+  font: 400 17px/1 var(--font-body);
+}
+input::placeholder { color: #8c8f98; }
+input:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; border-color: var(--gold); }
+input[aria-invalid="true"] { border-color: #b4533f; }
+.err { display: none; margin: 8px 0 0; color: #a2442f; font-size: 14px; }
+.field.bad .err { display: block; }
+.btn {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  width: 100%; height: 52px; margin-top: 8px; padding: 0 20px;
+  background: var(--gold); color: #fff; border: 0; border-radius: 2px; cursor: pointer;
+  font: 500 17px/1 var(--font-body); text-decoration: none;
+  transition: background .2s;
+}
+.btn:hover { background: #9a7d33; }
+.btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.btn svg { width: 16px; height: 16px; flex: none; }
+.privacy { display: flex; gap: 10px; align-items: flex-start; margin: 20px 0 0; color: var(--muted); font-size: 17px; line-height: 1.5; }
+.privacy svg { width: 11px; height: 11px; flex: none; margin-top: 8px; }
+.sign { margin-top: 38px; }
+.sign p { margin: 0; }
+.sign .hand { font-family: var(--font-display); font-style: italic; font-size: 17px; }
+.sign .ref { margin-top: 4px; color: var(--muted); font-size: 18px; letter-spacing: .1em; text-transform: uppercase; }
+
+.thanks[hidden] { display: none; }
+.thanks h2 { margin: 0 0 14px; font-family: var(--font-display); font-weight: 500; font-size: 36px; line-height: 1.1; }
+.thanks h2 em { color: var(--gold); }
+.thanks p { margin: 0 0 24px; color: var(--muted); font-size: 17px; line-height: 1.7; }
+
+/* faixa de pontos */
+.band { background: var(--paper); }
+.band .wrap { display: grid; grid-template-columns: 1.1fr 1fr 1fr 1fr; gap: 28px; align-items: center; padding-block: 34px 38px; }
+.band h3 { margin: 0 0 6px; color: var(--gold); font-weight: 500; font-size: 18px; letter-spacing: .13em; text-transform: uppercase; }
+.band .motto { margin: 0; font-family: var(--font-display); font-size: 26px; line-height: 1.12; }
+.point { display: flex; align-items: center; gap: 14px; margin: 0; font-size: 17px; line-height: 1.65; }
+.point svg { width: 24px; height: 24px; flex: none; color: #c4917b; }
+@media (max-width: 960px) { .band .wrap { grid-template-columns: 1fr; gap: 18px; } }
+
+.foot { background: var(--paper); }
+.foot .wrap { padding-block: 0 38px; }
+.foot .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 26px; border-top: 2px solid var(--line); color: var(--muted); font-size: 17px; }
+.foot .row p { margin: 0; }
+
+@media (max-width: 720px) {
+  .hero .wrap { min-height: 0; padding-block: 48px 40px; }
+  .hero .scene { opacity: .55; }
+  .hero-in { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19C4 10 9 4 20 4c0 11-6 16-14 15"/><path d="M5 19c3-5 6-8 10-10"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-4 3.6-6 7-6s6.2 2 7 6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.5 6.5 8.5 7 8.5-7"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 6c-2-1.5-5-2-9-1.5v14c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5v-14C17 4 14 4.500 12 6z"/><path d="M12 6v14"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 20S3.500 14.500 3.500 8.800A4.500 4.500 0 0 1 12 7a4.500 4.500 0 0 1 8.500 1.800C20.500 14.500 12 20 12 20z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24" fill="currentColor"><path d="M10 3l1.300 4.200L15.500 8.500 11.300 9.800 10 14 8.700 9.800 4.500 8.500 8.700 7.200zM18 12l.8 2.600 2.600.8-2.600.8L18 18.800l-.8-2.600-2.600-.8 2.600-.8z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="escolhidas">
+      <svg style="color:var(--gold)"><use href="#i-leaf"/></svg>
+      <span>escolhidas<i>.</i></span>
+    </a>
+    <div class="tag"><svg style="color:var(--gold)"><use href="#i-spark"/></svg>Um novo olhar para você</div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <svg class="scene" viewBox="0 0 1440 1020" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+      <defs>
+        <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+        <filter id="soft2"><feGaussianBlur stdDeviation="5"/></filter>
+        <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ebe3d5"/><stop offset=".55" stop-color="#f4eee3"/><stop offset="1" stop-color="#ece3d4"/>
+        </linearGradient>
+        <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#e4dac9" stop-opacity="0"/><stop offset="1" stop-color="#f7f2e8"/>
+        </linearGradient>
+        <radialGradient id="petal" cx=".3" cy=".5" r=".9">
+          <stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#ece4d4"/>
+        </radialGradient>
+        <path id="p" d="M0 0C-26-18-30-62 0-96 30-62 26-18 0 0z"/>
+      </defs>
+      <rect width="1440" height="1020" fill="url(#wall)"/>
+      <!-- sombras de folhas projetadas na parede -->
+      <g fill="#a99978" opacity=".30" filter="url(#soft)">
+        <path d="M1010 330c60-80 150-120 230-110-20 90-110 170-230 110z"/>
+        <path d="M1080 470c70-70 170-90 250-60-40 90-140 140-250 60z"/>
+        <path d="M960 560c50-60 140-80 210-40-30 80-120 110-210 40z"/>
+        <path d="M1160 640c60-50 150-50 210 0-40 70-130 90-210 0z"/>
+        <path d="M1000 700c40-50 110-60 170-20-30 60-100 80-170 20z"/>
+        <path d="M1240 190c40-40 100-50 150-20-20 60-90 80-150 20z"/>
+      </g>
+      <g stroke="#a99978" stroke-width="5" stroke-linecap="round" fill="none" opacity=".25" filter="url(#soft2)">
+        <path d="M1380 160C1250 280 1120 420 1020 640"/>
+        <path d="M1330 540C1240 600 1150 700 1090 840"/>
+      </g>
+      <g fill="#a99978" opacity=".16" filter="url(#soft)">
+        <path d="M880 760c40-50 120-60 170-10-40 60-120 70-170 10z"/>
+        <path d="M1220 800c60-40 140-30 190 20-50 50-140 50-190-20z"/>
+        <path d="M780 880c50-30 110-20 150 20-40 40-110 40-150-20z"/>
+      </g>
+      <!-- chão -->
+      <rect y="900" width="1440" height="120" fill="url(#floor)"/>
+      <path d="M0 985C400 960 900 940 1440 905V1020H0z" fill="#e1d7c6" opacity=".35" filter="url(#soft2)"/>
+      <!-- margaridas no canto -->
+      <g transform="translate(1425 210)">
+        <g fill="url(#petal)" stroke="#e3dac9" stroke-width="1">
+          <use href="#p" transform="rotate(-100) scale(1.050)"/><use href="#p" transform="rotate(-70) scale(1)"/>
+          <use href="#p" transform="rotate(-40) scale(1.050)"/><use href="#p" transform="rotate(-10) scale(1)"/>
+          <use href="#p" transform="rotate(20) scale(1.050)"/><use href="#p" transform="rotate(50) scale(1)"/>
+          <use href="#p" transform="rotate(80) scale(1.050)"/><use href="#p" transform="rotate(110) scale(1)"/>
+          <use href="#p" transform="rotate(140) scale(1.050)"/><use href="#p" transform="rotate(170) scale(1)"/>
+        </g>
+        <circle r="26" fill="#9a6a4c"/><circle r="26" fill="#6d4a35" opacity=".5" cx="6" cy="4"/>
+      </g>
+      <g transform="translate(1440 450) rotate(-12)">
+        <g fill="url(#petal)" stroke="#e3dac9" stroke-width="1">
+          <use href="#p" transform="rotate(-100) scale(.9)"/><use href="#p" transform="rotate(-65) scale(.85)"/>
+          <use href="#p" transform="rotate(-30) scale(.9)"/><use href="#p" transform="rotate(5) scale(.85)"/>
+          <use href="#p" transform="rotate(40) scale(.9)"/><use href="#p" transform="rotate(75) scale(.85)"/>
+          <use href="#p" transform="rotate(110) scale(.9)"/>
+        </g>
+        <circle r="20" fill="#d7cba9" opacity=".7"/>
+      </g>
+    </svg>
+
+    <div class="wrap">
+      <div class="hero-in">
+        <p class="eyebrow">Seu próximo capítulo começa aqui</p>
+        <h1>Cadastre-se e receba um material para aplicar e <em>transformar a sua vida</em></h1>
+        <p class="lead">Um convite para olhar para si com mais amor e viver a versão que você escolher.</p>
+
+        <form id="form" novalidate>
+          <div class="field" id="f-nome">
+            <label for="nome">Seu nome</label>
+            <div class="input"><svg aria-hidden="true"><use href="#i-user"/></svg>
+              <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como podemos chamar você?" required>
+            </div>
+            <p class="err">Digite seu nome para continuar.</p>
+          </div>
+          <div class="field" id="f-tel">
+            <label for="tel">Seu telefone</label>
+            <div class="input"><svg aria-hidden="true"><use href="#i-phone"/></svg>
+              <input id="tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" maxlength="15" required>
+            </div>
+            <p class="err">Informe um telefone com DDD.</p>
+          </div>
+          <div class="field" id="f-email">
+            <label for="email">Seu e-mail</label>
+            <div class="input"><svg aria-hidden="true"><use href="#i-mail"/></svg>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required>
+            </div>
+            <p class="err">Informe um e-mail válido.</p>
+          </div>
+          <button class="btn" type="submit"><span>Quero receber meu material</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <p class="privacy"><svg aria-hidden="true"><use href="#i-lock"/></svg><span>Seus dados são usados para registrar o acesso ao material.</span></p>
+        </form>
+
+        <div class="thanks" id="thanks" hidden>
+          <h2>Que bom ter você aqui, <em id="who"></em>.</h2>
+          <p>Seu guia prático está pronto. Reserve 10 minutos, pegue um caderno e comece pelo check-in emocional.</p>
+          <a class="btn" id="open" href="Escolhidas-Guia-Pratico.pdf" target="_blank" rel="noopener"><span>Abrir meu guia prático</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+
+        <div class="sign">
+          <p class="hand">Com carinho, Raphaela Maximiano</p>
+          <p class="ref">Guia Prático · Escolhidas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div>
+        <h3>Um momento só seu</h3>
+        <p class="motto">Pequenos passos.<br>Novas escolhas.</p>
+      </div>
+      <p class="point"><svg aria-hidden="true"><use href="#i-book"/></svg><span>Um guia prático para<br>o seu dia a dia</span></p>
+      <p class="point"><svg aria-hidden="true"><use href="#i-heart"/></svg><span>Inteligência emocional<br>e autoconhecimento</span></p>
+      <p class="point"><svg aria-hidden="true"><use href="#i-leaf"/></svg><span>Um desafio de 21 dias<br>para florescer</span></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="row">
+      <p>Escolhidas · Raphaela Maximiano</p>
+      <p>Feito para a versão que você escolhe viver.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Cole aqui a URL do app da web do Google Apps Script (veja LEIA-ME.txt)
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwTJ0zDT_oBgL0o3CWrz_pnrWU-lGUPH-hi9zF8QlDB9QOXy-hyHQCXjwYPRTYRZ7af/exec';
+  var form = document.getElementById('form');
+  var tel = document.getElementById('tel');
+
+  tel.addEventListener('input', function () {
+    var d = tel.value.replace(/\D/g, '').slice(0, 11), o = '';
+    if (d.length > 0) o = '(' + d.slice(0, 2);
+    if (d.length >= 3) o += ') ' + d.slice(2, d.length > 10 ? 7 : 6);
+    if (d.length > (d.length > 10 ? 7 : 6)) o += '-' + d.slice(d.length > 10 ? 7 : 6);
+    tel.value = o;
+  });
+
+  function mark(id, ok) {
+    var f = document.getElementById('f-' + id);
+    f.classList.toggle('bad', !ok);
+    f.querySelector('input').setAttribute('aria-invalid', ok ? 'false' : 'true');
+    return ok;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nome = document.getElementById('nome').value.trim();
+    var t = tel.value.replace(/\D/g, '');
+    var em = document.getElementById('email').value.trim();
+    var a = mark('nome', nome.length >= 2);
+    var b = mark('tel', t.length >= 10);
+    var c = mark('email', /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em));
+    if (!(a && b && c)) {
+      var first = form.querySelector('.bad input');
+      if (first) first.focus();
+      return;
+    }
+    if (ENDPOINT.indexOf('https://') === 0) {
+      var body = new URLSearchParams({ nome: nome, telefone: tel.value, email: em });
+      try { fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: body }); } catch (err) {}
+    }
+    document.getElementById('who').textContent = nome.split(/\s+/)[0];
+    form.hidden = true;
+    var th = document.getElementById('thanks');
+    th.hidden = false;
+    document.getElementById('open').focus();
+  });
+})();
+</script>
+
+</body>
+</html>
